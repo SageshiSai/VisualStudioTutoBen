@@ -1,9 +1,8 @@
 package EVA3.Veterinario;
 
-import java.io.Serializable;
 import java.util.Scanner;
 
-public class Perro extends Animal implements Serializable {
+public class Perro extends Animal{
 
     protected String raza;
     
