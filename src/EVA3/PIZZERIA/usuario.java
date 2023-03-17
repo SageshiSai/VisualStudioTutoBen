@@ -47,5 +47,11 @@ public class usuario {
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
-    
+
+    public void print() {
+        System.out.println("ID: "+this.id);
+        System.out.println("Nombre: "+this.nombre);
+        System.out.println("Apellido "+this.apellido);
+        System.out.println("**********************");
+    }
 }

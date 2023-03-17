@@ -128,16 +128,24 @@ public class pizzariamain {
 
         do {
             System.out.println("Elige una de las siguientes opciones");
-            System.out.println("1- Añadir Perro");
-            System.out.println("2- Añadir Veterinario");
-            System.out.println("3- Listar Perros");
-            System.out.println("4- Listar veterinario");
             System.out.println("0- Salir");
+            System.out.println("1- Listar Pizzas");
+            System.out.println("2- Listar Usuarios");
+            System.out.println("3- Listar Pedidos");
+            System.out.println("4- añadir una nueva  pizza");
+            System.out.println("5- añadir un nuevo  usuario");
+            System.out.println("6- añadir un nuevo  pedido");
+            System.out.println("7- Listar Ofertas");
+            System.out.println("8- Añadir Oferta");
+            System.out.println("9- Visualizar ofertas de una pizza");
             System.out.println("Opcion: ");
             opcion = teclado.nextInt();
             switch (opcion) {
                 case 1:
-                    p = new usuario();
+                    for (pizza pi : arrayPizza) {
+                        pi.print();
+                    }
+                    /*p = new usuario();
                     teclado.nextLine();
                     System.out.println("Añada un Perro: ");
                     // p.leer(teclado);
@@ -148,65 +156,55 @@ public class pizzariamain {
                         arrayUsuario.add(new usuario(p));
                         System.out.println("El Perro a sido añadido correctamente");
                         Modificado = true;
-                    }
+                    }*/
                     break;
 
                 case 2:
-                    teclado.nextLine();
-                    // v = new Veterinario();
-                    System.out.println("Añada un alumno: ");
-                    // v.leer(teclado);
-
-                    // if (arrayVeterinario.contains(v))
-                    System.out.println("El Veterinario ya existe");
-                    // else {
-                    // arrayVeterinario.add(new Veterinario(v));
-                    System.out.println("El Veterinario a sido añadido correctamente");
-                    Modificado = true;
-                    // }
+                    for (usuario u : arrayUsuario) {
+                        u.print();
+                    }
                     break;
-                case 6:
-                    teclado.nextLine();
-                    // v = new Veterinario();
-                    System.out.println("Añada un alumno: ");
-                    // v.leer(teclado);
-
-                    // if (arrayVeterinario.contains(v))
-                    System.out.println("El Veterinario ya existe");
-                    // else {
-                    // arrayVeterinario.add(new Veterinario(v));
-                    System.out.println("El Veterinario a sido añadido correctamente");
-                    Modificado = true;
-                    // }
+                    case 3:
+                    for (pedido pedido : arrayPedido) {
+                        pedido.print();
+                    }
                     break;
-                case 3:
-
-                    // for (Perro al : arrayPerro) {
-                    // al.print();
-                    // }
-                    break;
-
-                case 4:
-
+                    
+                    case 4:
+                    
                     // for (Veterinario al : arrayVeterinario) {
-                    // al.print();
-                    // }
-                    break;
+                        // al.print();
+                        // }
+                        break;
+                        case 6:
+                            teclado.nextLine();
+                            // v = new Veterinario();
+                            System.out.println("Añada un alumno: ");
+                            // v.leer(teclado);
+        
+                            // if (arrayVeterinario.contains(v))
+                            System.out.println("El Veterinario ya existe");
+                            // else {
+                            // arrayVeterinario.add(new Veterinario(v));
+                            System.out.println("El Veterinario a sido añadido correctamente");
+                            Modificado = true;
+                            // }
+                            break;
                 case 5:
-
+                
                     // for (Veterinario al : arrayVeterinario) {
                     // al.print();
                     // }
                     break;
                 case 7:
-
+                
                     // for (Veterinario al : arrayVeterinario) {
-                    // al.print();
+                        // al.print();
                     // }
                     break;
                 case 8:
 
-                    // for (Veterinario al : arrayVeterinario) {
+                // for (Veterinario al : arrayVeterinario) {
                     // al.print();
                     // }
                     break;

@@ -58,5 +58,12 @@ public class pizza {
     public void setPrecio(int precio) {
         this.precio = precio;
     }
+    public void print(){
+        System.out.println("Id: "+ this.id);
+        System.out.println("Nombre: "+ this.nombre);
+        System.out.println("Ingredientes: "+ this.ingredientes);
+        System.out.println("Precio: "+ this.precio);
+        System.out.println("***********************");
+    }
 
 }

@@ -54,4 +54,12 @@ public class pedido {
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
+    public void print() {
+        System.out.println("IDPizza: "+this.idpizza);
+        System.out.println("IDUsuario: "+this.idusuario);
+        System.out.println("IDPedido: "+this.idpedido);
+        System.out.println("Cantidad: "+this.cantidad);
+        System.out.println("*************************");
+    }
 }
