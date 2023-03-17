@@ -1,8 +1,9 @@
 package EVA3.Veterinario;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public abstract class Animal {
+public abstract class Animal implements Serializable {
         
     protected String cod;
     protected String nombre;
