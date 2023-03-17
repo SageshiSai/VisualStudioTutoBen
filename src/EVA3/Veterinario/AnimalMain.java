@@ -50,14 +50,14 @@ public class AnimalMain {
             // si se ha conectado correctamente
             System.out.println("Conexión Correcta.");
             Statement st = conexion.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM bdveterinario.veterinario;");
+            ResultSet rs = st.executeQuery("SELECT * FROM veterinario;");
             String dni = "";
             String nombre = "";
             String direccion = "";
             while (rs.next()) {
-                dni = (String) rs.getObject("codigo");
+                dni = (String) rs.getObject("DNI");
                 nombre = (String) rs.getObject("nombre");
-                direccion = (String) rs.getObject("raza");
+                direccion = (String) rs.getObject("Direccion");
                 arrayVeterinario.add(new Veterinario(dni, nombre, direccion));
             }
 
@@ -111,42 +111,16 @@ public class AnimalMain {
                     }
                     break;
                 case 3:
-                    Collections.sort(arrayPerro, new Comparator<Perro>() {
-                        @Override
-                        public int compare(Perro p1, Perro p2) {
-                            // Aqui esta el truco, ahora comparamos p2 con p1 y no al reves como antes
-                            int comparacion = new String(p1.getNombre()).compareTo(new String(p2.getNombre()));
-                            if (comparacion == 0) {
-                                comparacion = new String(p1.getCod()).compareTo(new String(p2.getCod()));
-                                return (-comparacion);
-                            } else {
-                                return (-comparacion);
-                            }
-                        }
-                    });
 
                     for (Perro al : arrayPerro) {
-                        System.out.println("Perros: " + al);
+                        al.print();
                     }
                     break;
 
                 case 4:
-                    Collections.sort(arrayVeterinario, new Comparator<Veterinario>() {
-                        @Override
-                        public int compare(Veterinario p1, Veterinario p2) {
-                            // Aqui esta el truco, ahora comparamos p2 con p1 y no al reves como antes
-                            int comparacion = new String(p1.getNombre()).compareTo(new String(p2.getNombre()));
-                            if (comparacion == 0) {
-                                comparacion = new String(p1.getDni()).compareTo(new String(p2.getDni()));
-                                return (-comparacion);
-                            } else {
-                                return (-comparacion);
-                            }
-                        }
-                    });
 
                     for (Veterinario al : arrayVeterinario) {
-                        System.out.println("Veterinario: " + al);
+                        al.print();
                     }
                     break;
                 case 0:
@@ -174,7 +148,7 @@ public class AnimalMain {
                         // si se ha conectado correctamente
                         System.out.println("Conexión Correcta.");
                         Statement st = conexion.createStatement();
-                        st.executeUpdate("DELETE FROM bdveterinario.veterienario;");
+                        st.executeUpdate("DELETE FROM bdveterinario.veterinario;");
                         String dni = "";
                         String nombre = "";
                         String direccion = "";
@@ -183,8 +157,8 @@ public class AnimalMain {
                             dni = vet.getDni();
                             nombre = vet.getNombre();
                             direccion = vet.getDireccion();
-                            st.executeUpdate("INSERT INTO bdveterinario.veterinario VALUES (" + dni + "," + nombre + ","
-                                    + direccion + ");");
+                            st.executeUpdate("INSERT INTO bdveterinario.veterinario VALUES ('" + dni + "','" + nombre
+                                    + "','" + direccion + "');");
                         }
                         st.close();
                         // cierro los recursos abiertos
