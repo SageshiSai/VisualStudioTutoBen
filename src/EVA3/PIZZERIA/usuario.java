@@ -1,5 +1,7 @@
 package EVA3.PIZZERIA;
 
+import java.util.Scanner;
+
 public class usuario {
 
     protected int id;
@@ -53,5 +55,14 @@ public class usuario {
         System.out.println("Nombre: "+this.nombre);
         System.out.println("Apellido "+this.apellido);
         System.out.println("**********************");
+    }
+    public void leer(Scanner teclado){
+        System.out.println("AÑADE ID DEL USUARIO:");
+        this.id = teclado.nextInt();
+        teclado.nextLine();
+        System.out.println("AÑADE NOMBRE DEL USUARIO:");
+        this.nombre = teclado.nextLine().toLowerCase();
+        System.out.println("AÑADE EL APELLIDO:");
+        this.apellido = teclado.nextLine().toLowerCase();
     }
 }

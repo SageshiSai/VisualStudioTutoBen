@@ -1,5 +1,7 @@
 package EVA3.PIZZERIA;
 
+import java.util.Scanner;
+
 public class pedido {
     protected int idpizza;
     protected int idusuario;
@@ -61,5 +63,15 @@ public class pedido {
         System.out.println("IDPedido: "+this.idpedido);
         System.out.println("Cantidad: "+this.cantidad);
         System.out.println("*************************");
+    }
+    public void leer(Scanner teclado){
+        System.out.println("AÑADE ID DE LA PIZZA:");
+        this.idpizza = teclado.nextInt();
+        System.out.println("AÑADE ID DEL USUARIO:");
+        this.idusuario = teclado.nextInt();
+        System.out.println("AÑADE EL ID DEL PEDIDO:");
+        this.idpedido = teclado.nextInt();
+        System.out.println("AÑADE LA CANTIDAD:");
+        this.cantidad = teclado.nextInt();
     }
 }

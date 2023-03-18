@@ -1,5 +1,7 @@
 package EVA3.PIZZERIA;
 
+import java.util.Scanner;
+
 public class pizza {
     protected int id;
     protected String nombre;
@@ -64,6 +66,25 @@ public class pizza {
         System.out.println("Ingredientes: "+ this.ingredientes);
         System.out.println("Precio: "+ this.precio);
         System.out.println("***********************");
+    }
+    public void leer(Scanner teclado){
+        System.out.println("AÑADE ID DE LA PIZZA:");
+        this.id = teclado.nextInt();
+        teclado.nextLine();
+        System.out.println("AÑADE NOMBRE DE LA PIZZA:");
+        this.nombre = teclado.nextLine().toLowerCase();
+        System.out.println("AÑADE LOS INGREDIENTES:");
+        this.ingredientes = teclado.nextLine().toLowerCase();
+        System.out.println("AÑADE EL PRECIO:");
+        int precio = teclado.nextInt();
+        if(precio < 0){
+            while (precio<0) {
+                System.out.println("El precio no puede ser inferior a 0, Agregre un precio valido");
+                System.out.println("AÑADE EL PRECIO:");
+                precio = teclado.nextInt();
+            }
+        this.precio = precio;
+        }
     }
 
 }

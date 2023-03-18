@@ -47,32 +47,32 @@ public class pizzariamain {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-            try {
-                Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
-                // si se ha conectado correctamente
-                System.out.println("Conexión Correcta.");
-                Statement st = conexion.createStatement();
-                ResultSet rs = st.executeQuery("SELECT * FROM usuario;");
-                int dni = 0;
-                String nombre = "";
-                String apellido = "";
-                while (rs.next()) {
-                    dni = (int) rs.getObject("DNI");
-                    nombre = (String) rs.getObject("nombre");
-                    apellido = (String) rs.getObject("apellido");
-                    arrayUsuario.add(new usuario(dni, nombre, apellido));
-                }
-
-                // cierro la conexion
-
-                rs.close();
-
-                conexion.close();
-
-            } catch (SQLException e) {
-                e.printStackTrace();
+        try {
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
+            // si se ha conectado correctamente
+            System.out.println("Conexión Correcta.");
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM usuario;");
+            int dni = 0;
+            String nombre = "";
+            String apellido = "";
+            while (rs.next()) {
+                dni = (int) rs.getObject("DNI");
+                nombre = (String) rs.getObject("nombre");
+                apellido = (String) rs.getObject("apellido");
+                arrayUsuario.add(new usuario(dni, nombre, apellido));
             }
-        
+
+            // cierro la conexion
+
+            rs.close();
+
+            conexion.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
         try {
             Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
             // si se ha conectado correctamente
@@ -145,18 +145,7 @@ public class pizzariamain {
                     for (pizza pi : arrayPizza) {
                         pi.print();
                     }
-                    /*p = new usuario();
-                    teclado.nextLine();
-                    System.out.println("Añada un Perro: ");
-                    // p.leer(teclado);
 
-                    if (arrayUsuario.contains(p))
-                        System.out.println("El Perro ya existe");
-                    else {
-                        arrayUsuario.add(new usuario(p));
-                        System.out.println("El Perro a sido añadido correctamente");
-                        Modificado = true;
-                    }*/
                     break;
 
                 case 2:
@@ -164,47 +153,62 @@ public class pizzariamain {
                         u.print();
                     }
                     break;
-                    case 3:
+                case 3:
                     for (pedido pedido : arrayPedido) {
                         pedido.print();
                     }
                     break;
-                    
-                    case 4:
-                    
-                    // for (Veterinario al : arrayVeterinario) {
-                        // al.print();
-                        // }
-                        break;
-                        case 6:
-                            teclado.nextLine();
-                            // v = new Veterinario();
-                            System.out.println("Añada un alumno: ");
-                            // v.leer(teclado);
-        
-                            // if (arrayVeterinario.contains(v))
-                            System.out.println("El Veterinario ya existe");
-                            // else {
-                            // arrayVeterinario.add(new Veterinario(v));
-                            System.out.println("El Veterinario a sido añadido correctamente");
-                            Modificado = true;
-                            // }
-                            break;
+
+                case 4:
+
+                    v = new pizza();
+                    teclado.nextLine();
+                    System.out.println("Añada una Pizza: ");
+                    v.leer(teclado);
+                    if (arrayPizza.contains(v))
+                        System.out.println("La pizza ya existe");
+                    else {
+                        arrayPizza.add(new pizza(v));
+                        System.out.println("La Pizza a sido añadido correctamente");
+                        Modificado = true;
+                    }
+
+                    break;
                 case 5:
-                
+                    p = new usuario();
+                    teclado.nextLine();
+                    System.out.println("Añada un usuario: ");
+                    p.leer(teclado);
+                    if (arrayUsuario.contains(p))
+                        System.out.println("El usuario ya existe");
+                    else {
+                        arrayUsuario.add(new usuario(p));
+                        System.out.println("El usuario a sido añadido correctamente");
+                        Modificado = true;
+                    }
+                    break;
+                case 6:
+                    pe = new pedido();
+                    teclado.nextLine();
+                    System.out.println("Añada un pedido: ");
+                    pe.leer(teclado);
+                    if (arrayPedido.contains(pe))
+                        System.out.println("El pedido ya existe");
+                    else {
+                        arrayPedido.add(new pedido(pe));
+                        System.out.println("El pedido a sido añadido correctamente");
+                        Modificado = true;
+                    }
+                    break;
+                case 7:
+
                     // for (Veterinario al : arrayVeterinario) {
                     // al.print();
                     // }
                     break;
-                case 7:
-                
-                    // for (Veterinario al : arrayVeterinario) {
-                        // al.print();
-                    // }
-                    break;
                 case 8:
 
-                // for (Veterinario al : arrayVeterinario) {
+                    // for (Veterinario al : arrayVeterinario) {
                     // al.print();
                     // }
                     break;
