@@ -201,10 +201,9 @@ public class pizzariamain {
                     }
                     break;
                 case 7:
-
-                    // for (Veterinario al : arrayVeterinario) {
-                    // al.print();
-                    // }
+                    for (oferta Oferta : arrayOferta) {
+                        Oferta.print();
+                    }
                     break;
                 case 8:
 
