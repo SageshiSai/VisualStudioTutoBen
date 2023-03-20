@@ -206,11 +206,19 @@ public class pizzariamain {
                     }
                     break;
                 case 8:
-
-                    // for (Veterinario al : arrayVeterinario) {
-                    // al.print();
-                    // }
+                    o = new oferta();
+                    teclado.nextLine();
+                    System.out.println("Añada un usuario: ");
+                    o.leer(teclado);
+                    if (arrayUsuario.contains(o))
+                        System.out.println("El usuario ya existe");
+                    else {
+                        arrayOferta.add(new oferta(o));
+                        System.out.println("El usuario a sido añadido correctamente");
+                        Modificado = true;
+                    }
                     break;
+
                 case 9:
 
                     // for (Veterinario al : arrayVeterinario) {
