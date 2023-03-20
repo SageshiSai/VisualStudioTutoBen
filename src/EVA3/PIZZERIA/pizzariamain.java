@@ -228,10 +228,9 @@ public class pizzariamain {
                     String nombre = teclado.nextLine().toLowerCase();
                     int codigo = 0;
                     boolean ofertas = false;
-
                     for (pizza a : arrayPizza) {
-                        if (a.getNombre() == nombre) {
-                            codigo = a.id;
+                    if (a.nombre.equals(nombre) ) {
+                            codigo = a.getId();
                         }
                     }
                     for (oferta ofer : arrayOferta) {
@@ -352,5 +351,6 @@ public class pizzariamain {
         teclado.close();
         System.exit(0);
 
+        
     }
 }

@@ -25,6 +25,7 @@ public class oferta implements Serializable{
     }
 
     public void print() {
+        System.out.println("LAS OFERTAS SON");
         System.out.println("IDOferta: "+this.id);
         System.out.println("Nombre Oferta: "+this.nombre);
         System.out.println("IDPizza: "+this.idpizza);

@@ -76,14 +76,16 @@ public class pizza {
         System.out.println("AÑADE LOS INGREDIENTES:");
         this.ingredientes = teclado.nextLine().toLowerCase();
         System.out.println("AÑADE EL PRECIO:");
-        int precio = teclado.nextInt();
-        if(precio < 0){
-            while (precio<0) {
+        int precios = teclado.nextInt();
+        if(precios < 0){
+            while (precios<=0) {
                 System.out.println("El precio no puede ser inferior a 0, Agregre un precio valido");
                 System.out.println("AÑADE EL PRECIO:");
                 precio = teclado.nextInt();
+                this.precio = precios;
             }
-        this.precio = precio;
+        }else {
+        this.precio = precios;
         }
     }
 
