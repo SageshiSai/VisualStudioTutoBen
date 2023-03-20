@@ -1,8 +1,9 @@
 package EVA3.PIZZERIA;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class oferta {
+public class oferta implements Serializable{
     protected int id;
     protected String nombre;
     protected int idpizza;

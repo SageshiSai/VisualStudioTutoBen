@@ -53,14 +53,14 @@ public class pizzariamain {
             System.out.println("Conexión Correcta.");
             Statement st = conexion.createStatement();
             ResultSet rs = st.executeQuery("SELECT * FROM usuario;");
-            int dni = 0;
+            int id = 0;
             String nombre = "";
             String apellido = "";
             while (rs.next()) {
-                dni = (int) rs.getObject("DNI");
+                id = (int) rs.getObject("ID");
                 nombre = (String) rs.getObject("nombre");
                 apellido = (String) rs.getObject("apellido");
-                arrayUsuario.add(new usuario(dni, nombre, apellido));
+                arrayUsuario.add(new usuario(id, nombre, apellido));
             }
 
             // cierro la conexion
