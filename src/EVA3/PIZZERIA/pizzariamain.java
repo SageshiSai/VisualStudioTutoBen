@@ -261,18 +261,17 @@ public class pizzariamain {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                    }
-                    try {
-                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
-                                "root", "");
-                        // si se ha conectado correctamente
+                        try {
+                            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
+                            "root", "");
+                            // si se ha conectado correctamente
                         System.out.println("Conexión Correcta.");
                         Statement st = conexion.createStatement();
                         st.executeUpdate("DELETE FROM usuario;");
                         int id = 0;
                         String nombres = "";
                         String apellido = "";
-
+                        
                         for (usuario usu : arrayUsuario) {
                             id = usu.getId();
                             nombres = usu.getNombre();
@@ -290,7 +289,7 @@ public class pizzariamain {
                     }
                     try {
                         Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
-                                "root", "");
+                        "root", "");
                         // si se ha conectado correctamente
                         System.out.println("Conexión Correcta.");
                         Statement st = conexion.createStatement();
@@ -299,19 +298,19 @@ public class pizzariamain {
                         String nombres = "";
                         String ingredientes = "";
                         int Precio = 0;
-
+                        
                         for (pizza usu : arrayPizza) {
                             id = usu.getId();
                             nombres = usu.getNombre();
                             ingredientes = usu.getIngredientes();
                             Precio = usu.getPrecio();
                             st.executeUpdate("INSERT INTO pizza VALUES ('" + id +
-                                    "','" + nombres
+                            "','" + nombres
                                     + "','" + ingredientes
                                     + "','" + Precio + "');");
-                        }
-                        st.close();
-                        // cierro los recursos abiertos
+                                }
+                                st.close();
+                                // cierro los recursos abiertos
                         conexion.close();
                     } catch (SQLException e) {
                         e.printStackTrace();
@@ -319,7 +318,7 @@ public class pizzariamain {
                     }
                     try {
                         Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
-                                "root", "");
+                        "root", "");
                         // si se ha conectado correctamente
                         System.out.println("Conexión Correcta.");
                         Statement st = conexion.createStatement();
@@ -335,9 +334,9 @@ public class pizzariamain {
                             idpedido = usu.getIdpedido();
                             cantidad = usu.getCantidad();
                             st.executeUpdate("INSERT INTO pizza VALUES ('" + idpizza +
-                                    "','" + idusuario
-                                    + "','" + idpedido
-                                    + "','" + cantidad + "');");
+                            "','" + idusuario
+                            + "','" + idpedido
+                            + "','" + cantidad + "');");
                         }
                         st.close();
                         // cierro los recursos abiertos
@@ -346,6 +345,7 @@ public class pizzariamain {
                         e.printStackTrace();
                         System.out.println("Error de Conexion");
                     }
+                }
             }
         } while (opcion != 0);
         teclado.close();
