@@ -48,7 +48,7 @@ public class pizzariamain {
             e.printStackTrace();
         }
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
             // si se ha conectado correctamente
             System.out.println("Conexión Correcta.");
             Statement st = conexion.createStatement();
@@ -74,7 +74,7 @@ public class pizzariamain {
         }
 
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
             // si se ha conectado correctamente
             System.out.println("Conexión Correcta.");
             Statement st = conexion.createStatement();
@@ -101,7 +101,7 @@ public class pizzariamain {
             e.printStackTrace();
         }
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
             // si se ha conectado correctamente
             System.out.println("Conexión Correcta.");
             Statement st = conexion.createStatement();
@@ -263,7 +263,7 @@ public class pizzariamain {
                         }
                     }
                     try {
-                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria",
+                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
                                 "root", "");
                         // si se ha conectado correctamente
                         System.out.println("Conexión Correcta.");
@@ -289,7 +289,7 @@ public class pizzariamain {
                         System.out.println("Error de Conexion");
                     }
                     try {
-                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria",
+                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
                                 "root", "");
                         // si se ha conectado correctamente
                         System.out.println("Conexión Correcta.");
@@ -318,7 +318,7 @@ public class pizzariamain {
                         System.out.println("Error de Conexion");
                     }
                     try {
-                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria",
+                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
                                 "root", "");
                         // si se ha conectado correctamente
                         System.out.println("Conexión Correcta.");
