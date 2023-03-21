@@ -229,7 +229,7 @@ public class pizzariamain {
                     int codigo = 0;
                     boolean ofertas = false;
                     for (pizza a : arrayPizza) {
-                    if (a.nombre.equals(nombre) ) {
+                        if (a.nombre.equals(nombre)) {
                             codigo = a.getId();
                         }
                     }
@@ -351,6 +351,5 @@ public class pizzariamain {
         teclado.close();
         System.exit(0);
 
-        
     }
 }
