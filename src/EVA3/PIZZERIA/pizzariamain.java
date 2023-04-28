@@ -48,7 +48,7 @@ public class pizzariamain {
             e.printStackTrace();
         }
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria", "root", "");
             // si se ha conectado correctamente
             System.out.println("Conexión Correcta.");
             Statement st = conexion.createStatement();
@@ -74,7 +74,7 @@ public class pizzariamain {
         }
 
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria", "root", "");
             // si se ha conectado correctamente
             System.out.println("Conexión Correcta.");
             Statement st = conexion.createStatement();
@@ -101,7 +101,7 @@ public class pizzariamain {
             e.printStackTrace();
         }
         try {
-            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria", "root", "");
+            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria", "root", "");
             // si se ha conectado correctamente
             System.out.println("Conexión Correcta.");
             Statement st = conexion.createStatement();
@@ -228,25 +228,19 @@ public class pizzariamain {
                     String nombre = teclado.nextLine().toLowerCase();
                     int codigo = 0;
                     boolean ofertas = false;
-                    boolean pizzas = false;
                     for (pizza a : arrayPizza) {
-                        if (a.nombre.equals(nombre)) {
+                    if (a.nombre.equals(nombre) ) {
                             codigo = a.getId();
-                            pizzas = true;
                         }
                     }
-                    if (pizzas) {
-                        for (oferta ofer : arrayOferta) {
-                            if (ofer.idpizza == codigo) {
-                                ofer.print();
-                                ofertas = true;
-                            }
+                    for (oferta ofer : arrayOferta) {
+                        if (ofer.idpizza == codigo) {
+                            ofer.print();
+                            ofertas = true;
                         }
-                        if (!ofertas) {
-                            System.out.println("No hay ofertas para esta pizza");
-                        }
-                    } else {
-                        System.out.println("No existe esta pizza.");
+                    }
+                    if (!ofertas) {
+                        System.out.println("No hay ofertas para esta pizza");
                     }
                     break;
                 case 0:
@@ -267,95 +261,96 @@ public class pizzariamain {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        try {
-                            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
-                                    "root", "");
-                            // si se ha conectado correctamente
-                            System.out.println("Conexión Correcta.");
-                            Statement st = conexion.createStatement();
-                            st.executeUpdate("DELETE FROM usuario;");
-                            int id = 0;
-                            String nombres = "";
-                            String apellido = "";
+                    }
+                    try {
+                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria",
+                                "root", "");
+                        // si se ha conectado correctamente
+                        System.out.println("Conexión Correcta.");
+                        Statement st = conexion.createStatement();
+                        st.executeUpdate("DELETE FROM usuario;");
+                        int id = 0;
+                        String nombres = "";
+                        String apellido = "";
 
-                            for (usuario usu : arrayUsuario) {
-                                id = usu.getId();
-                                nombres = usu.getNombre();
-                                apellido = usu.getApellido();
-                                st.executeUpdate("INSERT INTO usuario VALUES ('" + id +
-                                        "','" + nombres
-                                        + "','" + apellido + "');");
-                            }
-                            st.close();
-                            // cierro los recursos abiertos
-                            conexion.close();
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                            System.out.println("Error de Conexion");
+                        for (usuario usu : arrayUsuario) {
+                            id = usu.getId();
+                            nombres = usu.getNombre();
+                            apellido = usu.getApellido();
+                            st.executeUpdate("INSERT INTO usuario VALUES ('" + id +
+                                    "','" + nombres
+                                    + "','" + apellido + "');");
                         }
-                        try {
-                            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
-                                    "root", "");
-                            // si se ha conectado correctamente
-                            System.out.println("Conexión Correcta.");
-                            Statement st = conexion.createStatement();
-                            st.executeUpdate("DELETE FROM pizza;");
-                            int id = 0;
-                            String nombres = "";
-                            String ingredientes = "";
-                            int Precio = 0;
+                        st.close();
+                        // cierro los recursos abiertos
+                        conexion.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        System.out.println("Error de Conexion");
+                    }
+                    try {
+                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria",
+                                "root", "");
+                        // si se ha conectado correctamente
+                        System.out.println("Conexión Correcta.");
+                        Statement st = conexion.createStatement();
+                        st.executeUpdate("DELETE FROM pizza;");
+                        int id = 0;
+                        String nombres = "";
+                        String ingredientes = "";
+                        int Precio = 0;
 
-                            for (pizza usu : arrayPizza) {
-                                id = usu.getId();
-                                nombres = usu.getNombre();
-                                ingredientes = usu.getIngredientes();
-                                Precio = usu.getPrecio();
-                                st.executeUpdate("INSERT INTO pizza VALUES ('" + id +
-                                        "','" + nombres
-                                        + "','" + ingredientes
-                                        + "','" + Precio + "');");
-                            }
-                            st.close();
-                            // cierro los recursos abiertos
-                            conexion.close();
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                            System.out.println("Error de Conexion");
+                        for (pizza usu : arrayPizza) {
+                            id = usu.getId();
+                            nombres = usu.getNombre();
+                            ingredientes = usu.getIngredientes();
+                            Precio = usu.getPrecio();
+                            st.executeUpdate("INSERT INTO pizza VALUES ('" + id +
+                                    "','" + nombres
+                                    + "','" + ingredientes
+                                    + "','" + Precio + "');");
                         }
-                        try {
-                            Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzeria",
-                                    "root", "");
-                            // si se ha conectado correctamente
-                            System.out.println("Conexión Correcta.");
-                            Statement st = conexion.createStatement();
-                            st.executeUpdate("DELETE FROM pedido;");
-                            int idpizza = 0;
-                            int idusuario = 0;
-                            int idpedido = 0;
-                            int cantidad = 0;
+                        st.close();
+                        // cierro los recursos abiertos
+                        conexion.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        System.out.println("Error de Conexion");
+                    }
+                    try {
+                        Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost/pizzaria",
+                                "root", "");
+                        // si se ha conectado correctamente
+                        System.out.println("Conexión Correcta.");
+                        Statement st = conexion.createStatement();
+                        st.executeUpdate("DELETE FROM pedido;");
+                        int idpizza = 0;
+                        int idusuario = 0;
+                        int idpedido = 0;
+                        int cantidad = 0;
 
-                            for (pedido usu : arrayPedido) {
-                                idpizza = usu.getIdpizza();
-                                idusuario = usu.getIdusuario();
-                                idpedido = usu.getIdpedido();
-                                cantidad = usu.getCantidad();
-                                st.executeUpdate("INSERT INTO pizza VALUES ('" + idpizza +
-                                        "','" + idusuario
-                                        + "','" + idpedido
-                                        + "','" + cantidad + "');");
-                            }
-                            st.close();
-                            // cierro los recursos abiertos
-                            conexion.close();
-                        } catch (SQLException e) {
-                            e.printStackTrace();
-                            System.out.println("Error de Conexion");
+                        for (pedido usu : arrayPedido) {
+                            idpizza = usu.getIdpizza();
+                            idusuario = usu.getIdusuario();
+                            idpedido = usu.getIdpedido();
+                            cantidad = usu.getCantidad();
+                            st.executeUpdate("INSERT INTO pizza VALUES ('" + idpizza +
+                                    "','" + idusuario
+                                    + "','" + idpedido
+                                    + "','" + cantidad + "');");
                         }
+                        st.close();
+                        // cierro los recursos abiertos
+                        conexion.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                        System.out.println("Error de Conexion");
                     }
             }
         } while (opcion != 0);
         teclado.close();
         System.exit(0);
 
+        
     }
 }
